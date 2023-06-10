@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "List Empolyee";
+}
+@model List<ASPNETMVCCRUD.Models.Domain.Employee>
+
+<h1>Empolyees</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th scope="col">DateOfBirth</th>
+            <th scope="col">Department</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 1;}
+        @foreach(var empolyee in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@empolyee.Id</td>
+                <td>@empolyee.Name</td>
+                <td>@empolyee.Email</td>
+                <td>@empolyee.Salary</td>
+                <td>@empolyee.DateOfBirth.ToString("dd-MM-yyyy")</td>
+                <td>@empolyee.Department</td>
+                <td>
+                    <a href="Empolyee/View/@empolyee.Id" class="btn btn-info">View</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
